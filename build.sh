@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t bdereims/mysql-phpmyadmin .
+docker build -t bdereims/phpipam .

@@ -1,5 +1,3 @@
 #!/bin/sh
 
-VOLUME=/data/lv-raid5/Docker/Volumes/mysql-phpmyadmin
-
-docker run -d -p 3306:3306 -p 8081:80 -v ${VOLUME}:/var/lib/mysql bdereims/mysql-phpmyadmin
+docker run -d -p 8080:80 --name phpipam -e MYSQL_SERVER=172.16.184.6 -e MYSQL_USER=admin -e MYSQL_PASSWD=changeme bdereims/phpipam
