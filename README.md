@@ -1,6 +1,6 @@
 # docker-phpipam
 
-Dockerfile that creates an image with phppam.
+Dockerfile for phpipam server.
 
 	# ./build.sh
 	# ./run-server.sh
