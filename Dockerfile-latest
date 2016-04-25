@@ -6,9 +6,13 @@ RUN apt-get update
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y install git apache2 php5 libapache2-mod-php5 php5-gd \
 	php5-gd php-xml-parser php5-intl php-pear php5-curl php5-mysql php5-json php5-gmp php5-mcrypt php5-ldap \ 
 	libgmp-dev libmcrypt-dev vim && \ 
-	cd /var/www/ && git clone https://github.com/phpipam/phpipam.git && chown -R www-data:www-data * && \
+	cd /var/www/ && git clone https://github.com/phpipam/phpipam.git && \
+	git clone https://github.com/covermymeds/phpIPAM-api.git && mv phpIPAM-api/api/* phpipam/api/. && \
+	rm -fr phpIPAM-api && chown -R www-data:www-data * && \
 	rm -fr html && mv phpipam html && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 	a2enmod rewrite && php5enmod mcrypt
+
+ADD ./000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN mv /var/www/html/config.dist.php /var/www/html/config.php && \
 	sed -i \ 
