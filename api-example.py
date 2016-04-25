@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 URL = "http://172.16.184.8:8080"
 USER = "admin"
 PASSWORD = "ecirb2016"
